@@ -2,7 +2,7 @@
 title: "HW2"
 format: html
 editor: visual
-author: Stephan Kadonoff
+author: Stephan Kadonoff 
 Date: 10/18/2025
 ---
 
@@ -41,12 +41,12 @@ rm(ej_screen)
 ```
 
 ```{r}
+#| message: false
 # Set CRS of ej_screen_la and birds_la to match HOLC
 ej_screen_la <- st_transform(ej_screen_la, 4326)
 birds_la <- st_transform(birds_la, 4326)
 holc_redline <- st_transform(holc_redline, 4326)
 # Check to make sure it worked and that all three now match
-birds_la <- st_transform(birds_la, 4326)
 st_crs(birds_la)
 st_crs(ej_screen_la)
 st_crs(holc_redline)
@@ -57,6 +57,7 @@ st_crs(holc_redline)
 ### 1. Create map of historical redlining neighborhoods
 
 ```{r}
+#| message: false
 #conduct initial exploratory map analysis
 tm_shape(holc_redline) +
   tm_borders() +
@@ -67,6 +68,7 @@ tm_shape(holc_redline) +
 ```
 
 ```{r}
+#| message: false
 # Add additional features to map
 tmap_mode("plot")
 
@@ -89,8 +91,11 @@ tm_shape(holc_redline) +
 First, we'll need to merge the HOLC data with the ejscreen_LA data
 
 ```{r}
+#| message: false
+#| warning: false
+#| echo: true
 #join EJScreen and HOLC via st_join and find the intersection
-holc_ej_la <- st_join(holc_redline, ej_screen_la, join = st_intersects)
+#holc_ej_la <- st_join(holc_redline, ej_screen_la, join = st_intersects)
 #encountered error stating that geometry is invalid, so run function to determine which data frame has issues 
 st_is_valid(holc_redline)
 st_is_valid(ej_screen_la)
