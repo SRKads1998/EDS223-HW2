@@ -2,6 +2,8 @@
 title: "HW2"
 format: html
 editor: visual
+author: Stephan Kadonoff
+Date: 10/18/2025
 ---
 
 ## Preliminary Steps
@@ -50,10 +52,6 @@ st_crs(ej_screen_la)
 st_crs(holc_redline)
 ```
 
-```{r}
-
-```
-
 ## Part 1
 
 ### 1. Create map of historical redlining neighborhoods
@@ -86,12 +84,9 @@ tm_shape(holc_redline) +
 
 ### 2. Create table summaries
 
-#### Create a table summary of census block groups within each HOLC grade, and include the NA 
+#### Create a table summary of census block groups within each HOLC grade, and include the NA
 
 First, we'll need to merge the HOLC data with the ejscreen_LA data
-
-```{r}
-```
 
 ```{r}
 #join EJScreen and HOLC via st_join and find the intersection
@@ -206,3 +201,19 @@ bird_percentage_plot
 The study lead by Ellis & Soto looked at many different states and metropolitan areas, while our study only looked at Los Angeles. They found greater than 2x sampling density in areas deemed "desirable" over "hazardous".
 
 They accounted for many more factors, such as pop density, climate, and essentially created a model to control for any of these variables. Note that even with accounting for these potentially confouding variables, they still found that historically red-lined regions had far lower sampling density.
+
+## Citations:
+
+The data utilized for this analysis was obtained from, and may be found in, the following links:
+
+<https://pedp-ejscreen.azurewebsites.net/>
+
+<https://dsl.richmond.edu/panorama/redlining/#loc=5/39.1/-94.58>
+
+<https://eds-223-geospatial.github.io/assignments/gbif.org>
+
+Miles, Monica Lynn. “(PDF) Mapping for Justice: How Ejscreen Advances Science Education and Community Advocacy.” *ResearchGate*, Dec. 2024, www.researchgate.net/publication/386898636_Mapping_for_Justice_How_EJScreen_Advances_Science_Education_and_Community_Advocacy.
+
+“Mapping Inequality.” *Digital Scholarship Lab*, dsl.richmond.edu/panorama/redlining/data. Accessed 18 Oct. 2025.
+
+Wharton, David, and Abhinanda Bhattacharyya. “If L.A. Adds City Council Seats, How Would It Work? These Charts Show The Possibilities.” *Los Angeles Times*, Los Angeles Times, 2 Oct. 2023, www.latimes.com/california/story/2023-10-02/los-angeles-city-council-expansion.
